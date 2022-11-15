@@ -1,24 +1,39 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
 
-Things you may want to cover:
+### Association
 
-* Ruby version
+- has_many :cinema
+- has_many :comments
 
-* System dependencies
 
-* Configuration
+## cinemas テーブル
 
-* Database creation
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| title      | strings    | null: false                    |
+| sentence   | text       | null: false                    |
+| user       | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_many :comments
 
-* Services (job queues, cache servers, search engines, etc.)
+## comments テーブル
 
-* Deployment instructions
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| content   | text       | null: false                    |
+| cinema    | references | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :cinema
+- belongs_to :user
