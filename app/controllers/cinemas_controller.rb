@@ -4,4 +4,8 @@ class CinemasController < ApplicationController
     @cinemas = Cinema.all
   end
 
+  def new
+    @cinema = Cinema.new
+  end
+
 end
