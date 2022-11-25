@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root to: 'cinemas#index'
-  resources :cinemas, only: [:index, :new]
+  resources :cinemas, only: [:index, :new, :create]
 end
