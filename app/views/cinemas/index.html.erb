@@ -1,6 +1,14 @@
 <div class="contents row">
   <% @cinemas.each do |cinema| %>
     <div class="content_post" style="background-image: url(<%= cinema.image %>);">
+    <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to '削除', "/cinemas/#{cinema.id}", method: :delete %>
+          </li>
+        </ul>
+      </div>
       <p><%= cinema.text %></p>
       <span class="name">
         <%= cinema.name %>
