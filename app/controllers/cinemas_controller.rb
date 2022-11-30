@@ -17,6 +17,10 @@ class CinemasController < ApplicationController
     cinema.destroy
   end
 
+  def edit
+    @cinema = Cinema.find(params[:id])
+  end
+
   private
   def cinema_params
     params.require(:cinema).permit(:name, :image, :text)
